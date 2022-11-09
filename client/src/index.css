@@ -1,0 +1,42 @@
+/* GLOBAL CSS */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+
+:root {
+  --primary: #ffffff;
+
+  /* TAILWIND: GRAY 900 */
+  --complementary: #111827;
+
+  /* TAILWIND: GRAY 200-400 */
+  --highlight-super-light: #f9fafb;
+  --highlight-light: #adffff;
+  --highlight: #d1d5db;
+  --highlight-dark: #9ca3af;
+  --highlight-super-dark: #3f4980;
+  
+  /* TAILWIND: INDIGO 600-700 */
+  --brand-light: #63a1f1;
+  --brand: #00c3ff; 
+  --brand-dark: #6630a3;
+
+  /* TAILWIND: GREEN 600 */
+  --success: #16a34a; 
+
+  /* TAILWIND: RED 600 */
+  --error: #dc2626; 
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--complementary);
+  background: var(--primary);
+  box-sizing: border-box;
+}
+
+/* Flex Box App Structure */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
