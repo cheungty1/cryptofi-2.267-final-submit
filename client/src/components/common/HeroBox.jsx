@@ -1,8 +1,13 @@
+// Import react modules
 import React from 'react';
+
+// External packages - Import Styled Components 
 import styled from 'styled-components';
-//import Button from 'react-bootstrap/Button';
+
+// Import components
 import CFNavLink from './CFNavLink';
 
+// Styled Component - CSS custom styling
 const Styles = styled.div`
   margin-top: 20px;
   margin-bottom: 20px;
@@ -13,6 +18,7 @@ const Styles = styled.div`
   text-align: center;
 `;
 
+// Container for the Home Page
 const HeroBox = ({ title, content, button }) => {
   return (
     <Styles>
@@ -27,4 +33,5 @@ const HeroBox = ({ title, content, button }) => {
   )
 }
 
+// Export function
 export default HeroBox

@@ -1,4 +1,7 @@
+// Import react modules:
 import React, { useState, useRef } from 'react';
+
+// Import Custom Modules:
 import { Link, useNavigate } from 'react-router-dom';
 
 // Import npm packages
@@ -12,6 +15,8 @@ import useAuth from '../../hooks/useAuth';
 import CFCard from '../../components/common/CFCard';
 import CFButton from '../../components/common/CFButton';
 
+// Custom CSS styling - Styled Components
+// Style Form component
 const StyledLabel = styled(Form.Label)`
   display: none;
 `;
@@ -37,6 +42,7 @@ const StyledInput = styled(Form.Control)`
   }
 `;
 
+// Custom CSS styling - Styled Components
 const UserNav = styled.div`
   margin-top: 1rem;
   padding-top: 1rem;
@@ -54,6 +60,7 @@ const UserNav = styled.div`
   }
 `;
 
+// Signup component
 const Signup = () => {
   // HOOK: CONTEXT FOR AUTH
   const { loginSaveUser } = useAuth();
@@ -145,7 +152,7 @@ const Signup = () => {
           <StyledInput type="password" placeholder="Password Confirmation" ref={passwordConfirmRef} required />
         </Form.Group>
 
-        {/* GROUP 7: IMAGE */}
+        {/* GROUP 5: IMAGE */}
         <Form.Group className="mb-3" controlId="image">
           <Form.Label>Avatar Image</Form.Label>
           <Form.Control 
@@ -167,4 +174,5 @@ const Signup = () => {
   )
 }
 
+// Export function
 export default Signup

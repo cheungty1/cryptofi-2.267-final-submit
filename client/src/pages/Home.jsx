@@ -6,11 +6,10 @@ import Container from 'react-bootstrap/Container';
 
 // Import custom components
 import HeroBox from '../components/common/HeroBox';
-
 import styled from 'styled-components';
-
 import CoverImg from '../assets/nicholas-cappello-Wb63zqJ5gnE-unsplash.jpg';
 
+// Custom styling
 const Image = styled.img`
   display: block;
   margin: auto;
@@ -21,6 +20,7 @@ const Image = styled.img`
 const Styles = styled.div`
 `;
 
+// Home component
 const Home = () => {
   return (
     <Styles fluid>
@@ -39,4 +39,5 @@ const Home = () => {
   )
 }
 
+// Export function
 export default Home

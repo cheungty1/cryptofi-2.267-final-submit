@@ -1,5 +1,10 @@
+// Import react modules:
 import React, { useState } from 'react';
+
+// External packages - Import npm packages
 import { useNavigate } from 'react-router-dom';
+
+// Import custom form components from React Bootstrap
 import { Row, Col, Form, InputGroup } from 'react-bootstrap';
 
 // Import custom modules
@@ -258,4 +263,5 @@ const AddCurrency = () => {
   )
 }
 
+// Export function
 export default AddCurrency

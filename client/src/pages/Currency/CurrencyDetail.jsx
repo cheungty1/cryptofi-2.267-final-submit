@@ -1,4 +1,7 @@
+// Import react modules:
 import React, { useState, useEffect } from 'react';
+
+// External packages - Import npm packages
 import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'react-bootstrap';
@@ -11,6 +14,7 @@ import Loader from '../../components/common/Loader';
 import CFNavLink from '../../components/common/CFNavLink';
 import CFButton from '../../components/common/CFButton';
 
+// Custom Styling
 const Styles = styled.div`
   .hero-box {
     padding: 2rem;
@@ -59,6 +63,7 @@ const Styles = styled.div`
   }
 `;
 
+// Currency Detail component
 const CurrencyDetail = () => {
   // CUSTOM HOOKS
   const { user } = useAuth();
@@ -168,7 +173,6 @@ const CurrencyDetail = () => {
                   <h2>{symbol}</h2>
                   {image && <img className="preview-image" src={image} alt={`Preview of ${name}`} />}
                 </div>
-               
               </Col>
               <Col>
                 <h2>{name}</h2>
@@ -207,4 +211,5 @@ const CurrencyDetail = () => {
   )
 }
 
+// Export function
 export default CurrencyDetail

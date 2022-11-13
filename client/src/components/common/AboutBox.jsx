@@ -1,12 +1,18 @@
+// Import react modules
 import React from 'react';
+
+// External Packages - Import npm packages
+// Import Styled Components
 import styled from 'styled-components';
 import CFNavLink from './CFNavLink';
 
+// Styled Component - CSS custom styling
 const Styles = styled.div`
   margin-top: 45px;
 
 `;
 
+// Container for the About page
 const AboutBox = ({ title, content, content2, button}) => {
   return (
     <Styles>
@@ -22,4 +28,5 @@ const AboutBox = ({ title, content, content2, button}) => {
   )
 }
 
+// Export function
 export default AboutBox

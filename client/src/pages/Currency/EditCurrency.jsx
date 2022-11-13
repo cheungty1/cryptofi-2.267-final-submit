@@ -1,4 +1,7 @@
+// Import react modules:
 import React, { useState, useEffect, useRef } from 'react';
+
+// External packages - Import npm packages
 import { useNavigate, useParams } from 'react-router-dom';
 import { Container, Row, Col, Form, InputGroup } from 'react-bootstrap';
 import styled from 'styled-components';
@@ -10,6 +13,7 @@ import CFButton from '../../components/common/CFButton';
 import ErrorPage from '../../components/common/ErrorPage';
 import Loader from '../../components/common/Loader';
 
+// Custom Styles
 const Styles = styled.div`
 .form-control {
   border-radius: 100rem;
@@ -19,6 +23,7 @@ const Styles = styled.div`
 // Custom Styles
 const PreviewImage = styled.img`
   margin-top: 1rem;
+  height: 250px;
   width: 250px;
   padding: 1rem;
   border: 5px solid var(--brand);
@@ -26,6 +31,7 @@ const PreviewImage = styled.img`
   opacity: 0.8;
 `;
 
+// Edit Currency component
 const EditCurrency = () => {
   // REACT-ROUTER DOM HOOKS
   const params = useParams();
@@ -223,6 +229,7 @@ const EditCurrency = () => {
               </InputGroup>
             </Col>
 
+            {/* 3C: PRICE CHANGE PERCENTAGE 24HR */}
             <Col lg={4} md={4} sm={12}>
               <Form.Label>24HR Price Change Percentage</Form.Label>
               <InputGroup>          
@@ -238,6 +245,7 @@ const EditCurrency = () => {
               </InputGroup>
             </Col>
 
+            {/* 3D: HIGH 24h CBDC PRICE */}
             <Col lg={4} md={4} sm={12}>
               <Form.Label>High 24h CBDC Price</Form.Label>
               <InputGroup>          
@@ -253,7 +261,7 @@ const EditCurrency = () => {
               </InputGroup>
             </Col>
 
-            {/* 3A: CURRENT PRICE */}
+            {/* 3E: LOW 24H CBDC PRICE */}
             <Col lg={4} md={4} sm={12}>
               <Form.Label>Low 24h CBDC Price</Form.Label>
               <InputGroup>          
@@ -268,8 +276,11 @@ const EditCurrency = () => {
                 />
               </InputGroup>
             </Col>
+            </Row>
+        </Form.Group>
 
-
+        {/* GROUP 4: TOTAL VOLUME */}
+        <Form.Group className="mb-3">
         <Col lg={4} md={4} sm={12}>
               <Form.Label>Total Volume</Form.Label>
               <InputGroup>          
@@ -283,9 +294,9 @@ const EditCurrency = () => {
                 />
               </InputGroup>
             </Col>
-            </Row>
         </Form.Group>
-        {/* GROUP 4: CBDC STATUS */}
+
+        {/* GROUP 5: CBDC STATUS */}
         <Form.Group className="mb-3">
           <Form.Label>CBDC Status</Form.Label>
           <Form.Control 
@@ -300,7 +311,7 @@ const EditCurrency = () => {
           </Form.Control>
         </Form.Group>
 
-        {/* GROUP 5: DESCRIPTION */}
+        {/* GROUP 6: DESCRIPTION */}
         <Form.Group className="mb-3">
           <Form.Label>Description of New CBDC</Form.Label>
           <Form.Control 
@@ -313,7 +324,7 @@ const EditCurrency = () => {
           />
         </Form.Group>
 
-        {/* GROUP 6: NATION */}
+        {/* GROUP 7: NATION */}
         <Form.Group className="mb-3">
           <Form.Label>Nation of Reserve Bank for DC</Form.Label>
           <Form.Control 
@@ -325,7 +336,7 @@ const EditCurrency = () => {
           />
         </Form.Group>
 
-        {/* GROUP 7A: CONDITIONAL PREVIEW OF IMAGE (File in DB) */}
+        {/* GROUP 8A: CONDITIONAL PREVIEW OF IMAGE (File in DB) */}
         { preview && !loading && 
           <div className="text-center mt-2 mb-5">
             <h6>Current Image</h6>
@@ -333,7 +344,7 @@ const EditCurrency = () => {
           </div>
         }
 
-        {/* GROUP 7B: IMAGE UPLOAD */}
+        {/* GROUP 8B: IMAGE UPLOAD */}
         <Form.Group className="mb-3" controlId="image">
           <Form.Label>CBDC Image</Form.Label>
           <Form.Control 
@@ -353,4 +364,5 @@ const EditCurrency = () => {
   )
 }
 
+// Export function
 export default EditCurrency

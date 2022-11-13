@@ -1,10 +1,13 @@
 // Import react modules
 import React from 'react';
 
-//Import npm packages
+// External Packages - Import npm packages
+// Import Styled Components
 import { Container } from 'react-bootstrap';
 import styled from 'styled-components';
 
+// Styled Component - CSS custom styling
+// Styling Container, Lead card and Card title
 const Styles = styled.div`
   .container {
     min-height: 80vh;
@@ -20,6 +23,7 @@ const Styles = styled.div`
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     text-align: left;
 
+    // Width Styling - pass props into Style Components and use ternary operator for different CSS styles for different situtations
     min-width: ${props => props.authform ? "30vw" : "60vw"};
   }
 
@@ -31,6 +35,7 @@ const Styles = styled.div`
   }
 `;
 
+// Card Component
 const CFCard = ({title, authform, children}) => {
   return (
     <Styles authform={authform ? 1 : 0}> 
@@ -46,4 +51,5 @@ const CFCard = ({title, authform, children}) => {
   )
 };
 
+// Export function
 export default CFCard

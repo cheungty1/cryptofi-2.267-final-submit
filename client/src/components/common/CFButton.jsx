@@ -1,9 +1,13 @@
+// Import react modules
 import React from 'react';
 
-// Import npm packages
+// External Packages - Import npm packages
+// Import Styled Components
 import { Button } from 'react-bootstrap';
 import styled from 'styled-components';
 
+// Styled Component - CSS custom styling
+// Button Styling
 const StyledButton = styled(Button)`
   width: 100%;
   border-radius: 10rem;
@@ -14,13 +18,14 @@ const StyledButton = styled(Button)`
   background: ${props => props.outline ? "var(--primary)" : "var(--brand)"};
   color: ${props => props.outline ? "var(--brand)" : "var(--primary)"};
 
+  // Button Styling - colour change when hover, active and focus
   &:hover, &:active, &:focus {
     background-color: var(--brand-dark);
-    //transform: scale(1.02);
     box-shadow: none;
   }
 `;
 
+// Button Component
 const CFButton = ({ children, loadingState, onClick, outline, navbar }) => {
   return (
     <StyledButton 
@@ -36,4 +41,5 @@ const CFButton = ({ children, loadingState, onClick, outline, navbar }) => {
   )
 }
 
+// Export function
 export default CFButton

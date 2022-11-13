@@ -69,6 +69,7 @@ module.exports = {
         email: email,
         password: await hashPassword(password),
         isAdmin: false,
+        // Added Image key: value pair to allow for avatar image uploads
         image: downloadURL
       });
 
@@ -122,7 +123,7 @@ module.exports = {
     }
   },
 
-// [3] GET Pofile BY ID
+// GET Profile BY ID - Custom added to allow the population of Edit Profile form
 async getUserProfileById(req, res, next){
   // Test: Check ID passed via URL query string parameters
   debugREAD(req.params);
@@ -131,7 +132,6 @@ async getUserProfileById(req, res, next){
     // Store the profile document query in variable & call GET method for ID
     const avatarRef = db.collection('users').doc(req.params.id);
     const doc = await avatarRef.get();
-    //here
     console.log(doc)
     //do below here
 //here edit out password, take doc variable and update value to only be made up of no password***
@@ -142,23 +142,15 @@ async getUserProfileById(req, res, next){
 
     // SUCCESS: Send back the specific document's data
     } else {
+      // Convert Data to JSON
+      // Use Spread operator and lodash method to EXCLUDE the password while reconstructing the user object
+      // Omits the password sent back to client when populating the form of the edit Profile page 
       const userJSON = _.omit(
         { ...doc.data() },
         'password'
       );
       console.log(userJSON);
-
-      /*
-      let docs = [];
-      snapshot(doc => {
-        docs.push({
-          name: doc.data().name,
-          email: doc.data().email,
-          isAdmin: doc.data().isAdmin,
-          image: doc.data().image,
-        });
-      });*/
-      res.send(userJSON); // herereturns all the data***
+      res.send(userJSON); // here returns all the data
     }
 
   // [500 ERROR] Checks for Errors in our Query - issue with route or DB query
@@ -167,7 +159,7 @@ async getUserProfileById(req, res, next){
   }
 },
 
-  // [4] PUT Profile BY ID
+  // [4] PUT Profile BY ID - Edit Profile details and image in Custom Edit Profile page
   async putUserProfileById(req, res, next){
     // (a) Validation (JOI) Direct from Form (refactored)
     debugPOST(req.params);
@@ -204,7 +196,7 @@ async getUserProfileById(req, res, next){
       return next(ApiError.internal('An error occurred in saving the image to storage', err));
     }
 
-    // (c) Store the currency document query in variable & call UPDATE method for ID
+    // (c) Store the users document query in variable & call UPDATE method for ID
     try {
       const avatarRef = db.collection('users').doc(req.params.id);
       const response = await avatarRef.update({

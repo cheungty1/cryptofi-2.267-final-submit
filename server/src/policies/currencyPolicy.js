@@ -40,15 +40,19 @@ module.exports = {
         case 'current_price':
           next(ApiError.badRequest('You must provide a valid CBDC current price information'))
           break
+
         case 'price_change_24h':
           next(ApiError.badRequest('You must provide a valid CBDC price change 24h information'))
           break
+
         case 'price_change_percentage_24h':
           next(ApiError.badRequest('You must provide a valid CBDC price change percentage information'))
           break
+
         case 'high_24h':
           next(ApiError.badRequest('You must provide a valid CBDC high 24hr price information'))
           break
+          
         case 'low_24h':
           next(ApiError.badRequest('You must provide a valid CBDC low 24hr price information'))
           break

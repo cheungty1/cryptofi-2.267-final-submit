@@ -1,7 +1,10 @@
 // Import React modules
 import React from 'react';
+
+// External packages - Import Styled Components
 import styled from 'styled-components';
 
+// Styled Components - CSS custom styling
 const MainFooter = styled.div`
   text-align: center;
   background: var(--highlight-light);
@@ -9,6 +12,7 @@ const MainFooter = styled.div`
   border-top: 1px solid var(--highlight);
 `;
 
+// Footer Function
 const Footer = () => {
   // Dynamic Date Function
   const getCurrentYear = () => {
@@ -17,9 +21,10 @@ const Footer = () => {
 
   return (
     <MainFooter className="py-3">
-      CryptoFi &copy; {getCurrentYear()} {/*- Pictures from Unsplash, Icons from Iconscout*/}
+      CryptoFi &copy; {getCurrentYear()} 
     </MainFooter>
   )
 }
 
+// Export function
 export default Footer

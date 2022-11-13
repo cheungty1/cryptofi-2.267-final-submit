@@ -1,21 +1,27 @@
+// Import react modules
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
 
-// Import npm packages & components
+// External Packages - Import npm packages
+// Import Styled Components
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+// Import custom modules/components
 import errorIcon from '../../assets/errorIcon.png';
 
+// Styled Component - CSS custom styling
 const Image = styled.img`
   width: 400px;
   margin-top: 2rem;
 `;
 
+// Style Link
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: var(--brand);
 `;
 
-// ERROR: We still render a redirect page on error, but use react-toastify to show a dynamic error popup message (https://fkhadra.github.io/react-toastify/introduction)
+// ERROR: Dynamic error message using React-Toastify 
 const ErrorPage = () => {
   return (
     <Fragment>
@@ -28,4 +34,5 @@ const ErrorPage = () => {
   )
 }
 
+// Export function
 export default ErrorPage

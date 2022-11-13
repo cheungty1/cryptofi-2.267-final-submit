@@ -1,4 +1,7 @@
+// Import react modules:
 import React, { useState } from 'react';
+
+// Import Custom Modules:
 import { Link, useNavigate } from 'react-router-dom';
 
 // Import npm packages
@@ -11,6 +14,8 @@ import useAuth from '../../hooks/useAuth';
 import CFCard from '../../components/common/CFCard';
 import CFButton from '../../components/common/CFButton';
 
+// Custom CSS styling - Styled Components
+// Style Form component
 const StyledLabel = styled(Form.Label)`
   display: none;
 `;
@@ -53,6 +58,7 @@ const UserNav = styled.div`
   }
 `;
 
+// Login component
 const Login = () => {
   // HOOK: CONTEXT FOR AUTH
   const { loginSaveUser } = useAuth();
@@ -115,4 +121,5 @@ const Login = () => {
   )
 }
 
+// Export function
 export default Login

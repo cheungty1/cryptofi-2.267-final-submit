@@ -1,3 +1,4 @@
+// Import react modules:
 import React, { useState, useEffect, useRef } from 'react';
 import useAuth from '../../hooks/useAuth';
 
@@ -5,7 +6,6 @@ import useAuth from '../../hooks/useAuth';
 import { Container } from 'react-bootstrap';
 import CFNavLink from '../../components/common/CFNavLink';
 import Marquee from 'react-fast-marquee'
-//import { Fragment } from "react";
 
 // Import components
 import currencyService from '../../services/currencyService';
@@ -14,8 +14,7 @@ import Loader from '../../components/common/Loader';
 import ErrorPage from '../../components/common/ErrorPage';
 import MarqueeList from '../../components/features/Menus/MarqueeList';
 
-//const space = <Fragment>&nbsp;&nbsp;&nbsp;&nbsp;</Fragment>
-
+// CurrencyMenu component
 const CurrencyMenu = () => {
   // HOOK: CONTEXT FOR AUTH
   const { user } = useAuth();
@@ -91,8 +90,6 @@ const CurrencyMenu = () => {
       { user && <div className="admin-section text-center mt-4">
         <CFNavLink to="/currency/add">Add Currency</CFNavLink>
       </div>}
-      
-      {/*<div>{space} </div>*/}
 
       {/* Currency Menu */}
       {data.length > 0 && 
@@ -105,4 +102,5 @@ const CurrencyMenu = () => {
   )
 }
 
+// Export function
 export default CurrencyMenu

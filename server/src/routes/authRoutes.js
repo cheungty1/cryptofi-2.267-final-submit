@@ -8,7 +8,7 @@ const AuthPolicy = require('../policies/authPolicy');
 const FilePolicy = require('../policies/filePolicy');
 const fileServerUpload = require('../middleware/fileServerUpload');
 const AuthController = require('../controllers/authController');
-const ProfilePolicy = require('../policies/profilePolicy');
+const authPolicy = require('../policies/authPolicy');
 
 // Setup routes within export function
 module.exports = () => {
@@ -40,7 +40,7 @@ module.exports = () => {
 
   // AUTH: PUT Route
   router.put('/:id', 
-    [ProfilePolicy.validateProfile,
+    [AuthPolicy.validateAuth,
     FilePolicy.filesPayloadExists,
     FilePolicy.fileSizeLimiter,
     FilePolicy.fileExtLimiter(['.png', '.jpg', '.jpeg', '.gif']),

@@ -1,29 +1,23 @@
-//import React, { Fragment } from 'react';
+// Import react modules
 import React from 'react';
 
 // External packages
-//import { Table } from 'react-bootstrap';
-import { Container } from 'react-bootstrap';
+// Import Styled Components
 import styled from 'styled-components';
+
+// Import Custom Components
 import MarqueeItem from './MarqueeItem';
 
+// Styled Components - CSS custom styling
 const Styles = styled.div`
 `;
+
+// Marqee List component
 const MarqueeList = (props) => {
- // Function using Regex to pass commas into long digits
- function numSeparator(number) {
-   let str = number.toString().split(".");
-   str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-   return  "$ " + str.join(".");
- }
-
- function capitalizeFirstLetter(string) {
-   return string.charAt(0).toUpperCase() + string.slice(1);
- }
-
+ 
  return (
   <Styles>
-
+  {/* Map function - iterate over array to pull data out and display/render it to the DOM */}
    <div className="grid-coin">
     { props.coins.map(( coin ) => (
       <MarqueeItem
@@ -36,8 +30,9 @@ const MarqueeList = (props) => {
       />
     ))}
   </div>
-        </Styles>
-      )
-     }
-     
-     export default MarqueeList
+  </Styles>
+  )
+  }
+
+  // Export function
+  export default MarqueeList

@@ -1,3 +1,7 @@
+// Import react modules:
+// Import useState - Hook that allows state variables in functional components
+// Import UseEffect - hook that runs wrapped functions during the component's lifecycle 
+// Import useRef - allows persistent of values between renders
 import React, { useState, useEffect, useRef } from 'react';
 
 // Import custom modules
@@ -5,24 +9,21 @@ import useAuth from '../../hooks/useAuth';
 import CFCard from '../../components/common/CFCard';
 import CFButton from '../../components/common/CFButton';
 import authService from '../../services/authService';
-import { Container } from 'react-bootstrap';
-import Loader from '../../components/common/Loader';
-import ErrorPage from '../../components/common/ErrorPage';
 import styled from 'styled-components';
 import CFNavLink from '../../components/common/CFNavLink';
-import { Link } from 'react-router-dom';
-import { useParams, useNavigate } from 'react-router-dom';
 import { Fragment } from "react"
 
 // Custom Styles
 const PreviewImage = styled.img`
+
   margin-bottom: 1rem;
-  width: 27vw;
-  height: 40vh;
+  height: 250px;
+  width: 250px;
   padding: 0.5rem;
   border: 3px solid var(--brand);
   border-radius: 50%;
   opacity: 0.8;
+  
 `;
 const CardTitle = styled.div`
     font-size: 2em;
@@ -35,10 +36,6 @@ const space = <Fragment>&nbsp;&nbsp;&nbsp;&nbsp;</Fragment>
 const Dashboard = () => {
   // HOOK: CONTEXT FOR AUTH
   const { user, logout } = useAuth();
-
-    // REACT-ROUTER DOM HOOKS
-    const params = useParams();
-    const navigate = useNavigate();
   
 // HOOK: SETTING COMPONENT STATE (& init values)
 const [userProfile, setUserProfile] = useState({
@@ -119,7 +116,7 @@ const effectRan = useRef(false);
 
   return (
     <CFCard authform >
-      <div className="text-center mb-4">
+      <div className="text-center mb-4 ">
       <PreviewImage src={image} alt="avatar-preview" />
         <CardTitle>Profile</CardTitle>
         <h5>Welcome {username}!</h5>
@@ -141,4 +138,5 @@ const effectRan = useRef(false);
   )
 }
 
+// Export function
 export default Dashboard

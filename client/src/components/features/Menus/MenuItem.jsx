@@ -1,10 +1,15 @@
+// Import react modules
 import React from 'react';
 
 // External packages
-//import { Link } from 'react-router-dom';
+// Import Styled Components
 import styled from 'styled-components';
+
+// Import Custom Components
 import CFNavLink from '../../common/CFNavLink';
 
+// Styled Components - CSS custom styling
+// Styling the Grid component and grid contents
 const Styles = styled.div`
   .grid-row {
     display: grid;
@@ -45,69 +50,70 @@ const Styles = styled.div`
     }
   }
 
- /* Media Queries */
- @media only screen and (max-width: 1199px){
+  /* Media Queries */
+  @media only screen and (max-width: 1199px){
   .grid-row {
   grid-template-columns: repeat(6, 1fr);
   }
   .text-center6 {
   display: none;
-}
-
-.text-center7 {
-  display: none;
-}
   }
+
+  .text-center7 {
+    display: none;
+  }
+  }
+
   @media only screen and (max-width: 991px){
-  .grid-row {
-  grid-template-columns: repeat(4, 1fr);
-}
+    .grid-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-.text-center4 {
-  display: none;
-}
+  .text-center4 {
+    display: none;
+  }
 
-.text-center5 {
-  display: none;
-}
+  .text-center5 {
+    display: none;
+  }
 
-.text-center6 {
-  display: none;
-}
+  .text-center6 {
+    display: none;
+  }
 
-.text-center7 {
-  display: none;
-}
+  .text-center7 {
+    display: none;
+  }
   }
 
   @media only screen and (max-width: 767px){
-  .grid-row {
-  grid-template-columns: repeat(2, 1fr);
-}
+    .grid-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-.text-center2 {
-  display: none;
-}
+  .text-center2 {
+    display: none;
+  }
 
-.text-center3 {
-  display: none;
-}
+  .text-center3 {
+    display: none;
+  }
 
-.text-center4 {
-  display: none;
-}
+  .text-center4 {
+    display: none;
+  }
 
-.text-center5 {
-  display: none;
-}
+  .text-center5 {
+    display: none;
+  }
 
-.text-center6 {
-  display: none;
-}
+  .text-center6 {
+    display: none;
+  }
 
-.text-center7 {
-  display: none;
-}
+  .text-center7 {
+    display: none;
+  }
   }
 
   @media only screen and (max-width: 575px){
@@ -115,85 +121,43 @@ const Styles = styled.div`
   grid-template-columns: repeat(1, 1fr);
   }
   .text-center1 {
-  display: none;
-}
+    display: none;
+  }
 
-.text-center2 {
-  display: none;
-}
+  .text-center2 {
+    display: none;
+  }
 
   .text-center3 {
-  display: none;
-}
+    display: none;
+  }
 
   .text-center4 {
-  display: none;
-}
-
-.text-center5 {
-  display: none;
-}
-
-.text-center6 {
-  display: none;
-}
-
-.text-center7 {
-  display: none;
-}
-  
-}
-`;
-
-/*
-const TableRow = styled.tr`
-  margin: 1rem 0%;
-
-  td {
-    padding: 1rem;
-    vertical-align: middle;
-    font-size: 0.9rem;
-
-    img {
-      max-width: 40px;
-    }
-    
-    p {
-      display: inline;
-      vertical-align: middle;
-      font-size: 1.2rem;
-      font-weight: bold;
-      margin-left: 1rem;
-    }
-
-    span {
-      vertical-align: -10%;
-      color: var(--highlight);
-      font-size: 0.7rem;
-      font-weight: bold;
-      margin-left: 0.4rem;
-    }
+    display: none;
   }
+
+  .text-center5 {
+    display: none;
+  }
+
+  .text-center6 {
+    display: none;
+  }
+
+  .text-center7 {
+    display: none;
+  }
+}
 `;
-*/
-/*
-const StyledLink = styled(Link)`
-  min-width: 100px;
-  font-size: 0.9rem;
-`;
-*/
+
+// Colour change styling of grid contents (where positive = green and negative = red)
 const ColorChange = styled.div`
   color: ${
     (props) => props.data < 0 ? "var(--error)" : "var(--success)"
   };
 `;
-/*
-const ColorChange2 = styled.div`
-  color: ${
-    (props) => props.data < 0 ? "var(--error)" : "var(--success)"
-  };
-`;
-*/
+
+// MenuItem function
 const MenuItem = (props) => {
   return (
     <Styles>
@@ -210,14 +174,14 @@ const MenuItem = (props) => {
           {props.price}
         </div>
 
-        {/* Section 3: Price Change (24hr) */}
+        {/* Section 3: Price Change (24hr) - Percentage */}
         <div className="text-center2" >
           <ColorChange data={props.pricechangepercentage24h}>
             {props.pricechangepercentage24h}&nbsp;%
           </ColorChange>
         </div>
 
-        {/* Section 3: Price Change (24hr) */}
+        {/* Section 4: Price Change (24hr) */}
         <div className="text-center3" >
           <ColorChange data={props.pricechange24h}>
            $ {props.pricechange24h}&nbsp;
@@ -234,17 +198,17 @@ const MenuItem = (props) => {
           {props.low24h}       
         </div>
 
-        {/* Section 4: Market Cap */}
+        {/* Section 7: Market Cap */}
         <div className="text-center6">
           {props.mktstatus}
         </div>
 
-        {/* Column 4: Market Cap */}
+        {/* Column 8: Volume */}
         <div className="text-center7">
           {props.volume}
         </div>
 
-        {/* Section 5: Link to Details */}
+        {/* Section 9: Link to Details */}
         <CFNavLink 
           to={`/currency/${props.id}`}
           outline
@@ -256,67 +220,5 @@ const MenuItem = (props) => {
   )
 }
 
-/*
-const MenuItem = (props) => {
-  return (
-    <TableRow>
-      {/* Column 1: Icon, Coin Name & Shorthand 
-      <td>
-        <img src={props.image} alt={props.name} />
-        <p>{props.name}</p>
-        <span>&#40; {props.symbol} &#41;</span>
-      </td>
-
-      {/* Column 2: Buy Price /*
-      <td className="text-center">
-        {props.price}
-      </td>
-
-      {/* Column 3: Price Change (24hr) 
-      <td className="text-center" >
-        <ColorChange data={props.pricechangepercentage24h}>
-        {props.pricechangepercentage24h} %
-        </ColorChange>
-      </td>
-
-      {/* Column 4: Price Change (24hr) 
-      <td className="text-center" >
-        <ColorChange data={props.pricechange24h}>
-        $ {props.pricechange24h}
-        </ColorChange>
-      </td>
-
-      {/* Column 5: High (24hr) 
-      <td className="text-center" >
-        {props.high24h}
-      </td>
-
-      {/* Column 6: Low (24hr) 
-      <td className="text-center" >
-        {props.low24h}       
-      </td>
-
-      {/* Column 7: Market Cap 
-      <td className="text-center">
-        {props.mktstatus}
-      </td>
-
-      {/* Column 4: Market Cap 
-      <td className="text-center">
-        {props.volume}
-      </td>
-
-      {/* Column 8: Link to Details 
-      <td>
-        <StyledLink 
-          className="btn btn-outline-dark"
-          to={`/currency/${props.id}`}
-        >
-          Buy {props.symbol}
-        </StyledLink>
-      </td>
-    </TableRow>
-  )
-}
-*/
+// Export function
 export default MenuItem

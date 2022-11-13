@@ -1,29 +1,36 @@
+// Import react modules: useState and useEffect
 import React, { useState, useEffect } from 'react';
+
+// Import custom modules
+// Import useNavigate from React router dom
 import { useNavigate } from "react-router-dom";
+// Import JWT Decode - library that decodes JWTs token (Base64Url encoded)
 import jwtDecode from 'jwt-decode';
 
-// Create our AuthContext [CREATES the WRAPPER]
+// Create AuthContext Wrapper
 const AuthContext = React.createContext()
 
-// Create our basic AuthProvider, to allow access to context values [DEFINES the WRAPPER]
+// Create basic AuthProvider - defines wrapper and allow access to context values
 export function AuthProvider({ children }) {
-  // User State, Mount Request & Variables
+
+  // State - User State, Mount Request & Variables
   const [user, setUser] = useState(null);
   let navigate = useNavigate();
 
+  // UseEffect hook - runs wrapped functions during the component's lifecycle
   useEffect(() => {
     const userData = getCurrentUser();
     setUser(userData);
   }, []);
 
-  // Register & Login Function
+  // Register & Login Function - Sets Item to local storage
   const loginSaveUser = async (data) => {
     const { token } = data;
     localStorage.setItem("token", token);
     setUser(jwtDecode(token));
   };
 
-  // Get Current User Function
+  // Get Current User Function - Gets Item from local storage
   function getCurrentUser() {
     try {
       const token = localStorage.getItem("token");
@@ -36,13 +43,12 @@ export function AuthProvider({ children }) {
   
   // Logout Function
   const logout = () => {
-    // localStorage.removeItem("user");
     localStorage.removeItem("token");
     setUser(null);
     navigate("/login");
   }
 
-  // Define the value attribute with props above
+  // Define value attribute with props above
   const value = {
     user,
     getCurrentUser,
@@ -50,7 +56,7 @@ export function AuthProvider({ children }) {
     logout
   }
 
-  // The Provider takes a "value" attribute 
+  // AuthContext.Provider takes "value" attribute 
   return (
     <AuthContext.Provider value={value}>
       { children }
@@ -58,4 +64,5 @@ export function AuthProvider({ children }) {
   )
 }
 
+// Export function
 export default AuthContext;

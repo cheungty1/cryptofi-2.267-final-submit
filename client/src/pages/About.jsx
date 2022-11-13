@@ -1,16 +1,16 @@
+// Import react modules:
 import React from 'react';
 
 // Import custom packages
 import { Container } from 'react-bootstrap';
-
 import AboutBox from '../components/common/AboutBox';
-
 import styled from 'styled-components';
 
+// Local modules
 import CoverImg from '../assets/maxim-hopman-fiXLQXAhCfk-unsplash.jpg';
-
 import CFNavLink from '../components/common/CFNavLink';
 
+// Custom Styling
 const Image = styled.img`
   display: block;
   margin: auto;
@@ -21,11 +21,10 @@ const Image = styled.img`
 const Styles = styled.div`
 `;
 
-
+// About component
 const About = () => {
   return (
     <Styles fluid>
-
     {<Image src={CoverImg} alt="cover image" />}
 
     <Container>
@@ -38,11 +37,11 @@ const About = () => {
         { <div className="admin-section text-center mt-4">
         <CFNavLink to="/currency/prices">Start Trading</CFNavLink>
         </div>}
-
     </Container>
     
     </Styles>
   )
 }
 
+// Export function
 export default About

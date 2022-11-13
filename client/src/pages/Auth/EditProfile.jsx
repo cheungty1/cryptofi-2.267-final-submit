@@ -1,19 +1,16 @@
+// Import react modules:
 import React, { useState, useEffect, useRef } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // Import custom modules
 import useAuth from '../../hooks/useAuth';
 import CFCard from '../../components/common/CFCard';
 import CFButton from '../../components/common/CFButton';
 import authService from '../../services/authService';
-import { Container } from 'react-bootstrap';
-import Loader from '../../components/common/Loader';
-import ErrorPage from '../../components/common/ErrorPage';
 import styled from 'styled-components';
-import { Fragment } from "react"
 import { Form } from 'react-bootstrap';
-import { toast } from 'react-toastify';  
 
+// Custom Styles
 const Styles = styled.div`
 .form-control {
   border-radius: 100rem;
@@ -22,28 +19,22 @@ const Styles = styled.div`
 
 // Custom Styles
 const PreviewImage = styled.img`
-  width: 15vw;
-  height: 25vh;
+  height: 250px;
+  width: 250px;
   padding: 0.5rem;
   border: 3px solid var(--brand);
   border-radius: 50%;
   opacity: 0.8;
 `;
-const CardTitle = styled.div`
-    font-size: 2em;
-    font-weight: 600;
-    color: var(--brand);
-`;
 
-const space = <Fragment>&nbsp;&nbsp;&nbsp;&nbsp;</Fragment>
-
+// Edit Profile component
 const EditProfile = () => {
-  //HOOK: CONTEXT FOR AUTH
-  const { user} = useAuth();
 
-    // REACT-ROUTER DOM HOOKS
-    const params = useParams();
-    const navigate = useNavigate();
+// HOOK: CONTEXT FOR AUTH
+const { user} = useAuth();
+
+// REACT-ROUTER DOM HOOK
+const navigate = useNavigate();
   
 // HOOK: SETTING COMPONENT STATE (& init values)
 const [userProfile, setUserProfile] = useState({
@@ -58,14 +49,15 @@ const [userProfile, setUserProfile] = useState({
 const [loading, setLoading] = useState(false);
 const [error, setError] = useState(false);
 
-//Uploaded File from Existing downloadURL
+// Uploaded File from Existing downloadURL
 const [uploadedFile, setUploadedFile] = useState("");
 const [preview, setPreview] = useState(true);
 
 // Destructure data state nested object properties
   const { id, username, email, password, isAdmin, image } = userProfile;
 
-  const passwordConfirmRef = useRef();
+// UseRef for password confirmation (not used)
+//const passwordConfirmRef = useRef();
 
  // HOOK: Re-mount Request Prevention (React18)
  const effectRan = useRef(false);
@@ -83,7 +75,8 @@ const [preview, setPreview] = useState(true);
        effectRan.current = true;
      }
    }
-   // eslint-disable-next-line react-hooks/exhaustive-deps
+   // Disable Linter Error:
+   // eslint-disable-next-line react-hooks/exhaustive-deps 
  }, [id]); 
 
 // FORM FUNCTIONS
@@ -137,7 +130,7 @@ const [preview, setPreview] = useState(true);
   e.preventDefault();
   setLoading(true);
 
-  
+  // Password Validation:
     /*// Early Validation - Error Check First
     if(password !== passwordConfirmRef.current.value){
       toast.error("Passwords do not match");
@@ -185,6 +178,7 @@ const [preview, setPreview] = useState(true);
           />
         </Form.Group>
 
+      {/* Password Section - Omitted because of the need for 2 factor authentication}
       {/* FORM SECTION 
       <Form.Group className="mb-3">
           <Form.Label>Password</Form.Label>
@@ -203,7 +197,7 @@ const [preview, setPreview] = useState(true);
           <Form.Control type="password" placeholder="Password Confirmation" ref={passwordConfirmRef} required />
         </Form.Group>
 
-        {/* GROUP 7A: CONDITIONAL PREVIEW OF IMAGE (File in DB) */}
+        {/* FORM SECTION: CONDITIONAL PREVIEW OF IMAGE (File in DB) */}
         { preview && !loading && 
           <div className="text-center mt-2 mb-5">
             <h6>Current Image</h6>
@@ -211,7 +205,7 @@ const [preview, setPreview] = useState(true);
           </div>
         }
 
-        {/* GROUP 7: IMAGE */}
+        {/* FORM SECTION: IMAGE */}
         <Form.Group className="mb-3" controlId="image">
           <Form.Label>Edit Avatar Image</Form.Label>
           <Form.Control 
@@ -232,4 +226,5 @@ const [preview, setPreview] = useState(true);
   )
 }
 
+// Export function
 export default EditProfile

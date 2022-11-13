@@ -1,3 +1,4 @@
+// Import react modules:
 import React, { useEffect, useState, useRef } from 'react';
 
 // Import npm packages
@@ -87,10 +88,10 @@ const CryptoMenu = () => {
       </div>
 
       {/* SECTION: Crypto Menu */}
-      {/* REFACTOR (A): Our return ONLY concerned with the success render condition AND all moving parts are abstracted out (SEE FEATURES COMPONENTS) */}
       {data.length > 0 && <MenuList title="Cryptocurrency" coins={data} />}
     </Container>
   )
 };
 
+// Export function
 export default CryptoMenu
