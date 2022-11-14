@@ -20,8 +20,8 @@ import Loader from '../../components/common/Loader';
 const PreviewImage = styled.img`
 
   margin-bottom: 1rem;
-  height: 250px;
-  width: 250px;
+  height: 320px;
+  width: 320px;
   padding: 0.5rem;
   border: 3px solid var(--brand);
   border-radius: 50%;
