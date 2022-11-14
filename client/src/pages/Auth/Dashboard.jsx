@@ -3,6 +3,8 @@
 // Import UseEffect - hook that runs wrapped functions during the component's lifecycle 
 // Import useRef - allows persistent of values between renders
 import React, { useState, useEffect, useRef } from 'react';
+import { Fragment } from "react"
+import { Container } from 'react-bootstrap';
 
 // Import custom modules
 import useAuth from '../../hooks/useAuth';
@@ -11,14 +13,15 @@ import CFButton from '../../components/common/CFButton';
 import authService from '../../services/authService';
 import styled from 'styled-components';
 import CFNavLink from '../../components/common/CFNavLink';
-import { Fragment } from "react"
+import ErrorPage from '../../components/common/ErrorPage';
+import Loader from '../../components/common/Loader';
 
 // Custom Styles
 const PreviewImage = styled.img`
 
   margin-bottom: 1rem;
-  height: 250px;
-  width: 250px;
+  height: 320px;
+  width: 320px;
   padding: 0.5rem;
   border: 3px solid var(--brand);
   border-radius: 50%;
@@ -50,12 +53,8 @@ const [userProfile, setUserProfile] = useState({
 const [loading, setLoading] = useState(false);
 const [error, setError] = useState(false);
 
-//Uploaded File from Existing downloadURL
-const [uploadedFile, setUploadedFile] = useState("");
-const [preview, setPreview] = useState(true);
-
 // Destructure data state nested object properties
-const { id, username, email, password, isAdmin, image } = userProfile;
+const { id, username, email, /*password,*/ isAdmin, image } = userProfile;
 
 // HOOK: Re-mount Request Prevention (React18)
 const effectRan = useRef(false);
@@ -65,7 +64,7 @@ const effectRan = useRef(false);
   console.log("Effect Ran");
   if (effectRan.current === false) {
     fetchUserProfile();
-    setLoading(false);
+    //setLoading(false);
 
     // CLEAN UP FUNCTION
     return () => {
@@ -87,21 +86,15 @@ const effectRan = useRef(false);
 
       // (ii) UPDATING STATE DATA OBJECT
       setUserProfile(userProfile => ({...userProfile,...fetchedUserProfile}));
-    
-      // Save uploaded file glob to state
-      if (!fetchedUserProfile.image) {      
-        console.log('No downloadURL provided by DB'); 
-      } else {
-        const fileGlob = authService.getFileFromUrl(fetchedUserProfile.image);
-        setUploadedFile(fileGlob);
-      }
 
     // (iii) CLEANUP FUNCTIONS
   } catch(err) {
     console.log(err?.response);
     setError(true);
+    window.scroll({top: 0, left: 0, behavior: 'smooth' });
   }
-}
+  setLoading(false);
+  };
 
   // CONDITIONAL LOAD: USER ERROR [POSSIBLY REPLACE WITH LOADING STATE]
   if (!user) {
@@ -113,9 +106,27 @@ const effectRan = useRef(false);
       </CFCard>
     )
   }
+  // CONDITIONAL LOAD: ERROR
+  if (error) {
+    return (
+      <Container className="text-center">
+        <ErrorPage />
+      </Container>
+    )
+  }
+
+  // CONDITIONAL LOAD: LOADING
+  if (loading) {
+    return (
+      <Container>
+        <Loader />
+      </Container>
+    )
+  }
 
   return (
     <CFCard authform >
+      {!loading && 
       <div className="text-center mb-4 ">
       <PreviewImage src={image} alt="avatar-preview" />
         <CardTitle>Profile</CardTitle>
@@ -123,6 +134,7 @@ const effectRan = useRef(false);
       <p><strong>Email: </strong>{email}</p>
       { isAdmin && <p><strong>Secret: </strong> Hello Admin - nice to see you here</p>}
       </div>
+      }
 
       {user && <div className="text-center mt-4"><CFNavLink to="/edit-profile">Edit User Profile</CFNavLink></div>}
 

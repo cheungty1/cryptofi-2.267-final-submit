@@ -161,8 +161,9 @@ const ColorChange = styled.div`
 const MenuItem = (props) => {
   return (
     <Styles>
+
       <div className="grid-row">
-        {/* Section 1: Icon, Coin Name & Shorthand */}
+
         <div className="grid-description">
           <img src={props.image} alt={props.name} />
           <span>{props.name}</span>
@@ -207,7 +208,6 @@ const MenuItem = (props) => {
         <div className="text-center7">
           {props.volume}
         </div>
-
         {/* Section 9: Link to Details */}
         <CFNavLink 
           to={`/currency/${props.id}`}

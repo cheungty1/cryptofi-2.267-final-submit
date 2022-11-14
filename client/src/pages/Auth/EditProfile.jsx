@@ -1,6 +1,8 @@
 // Import react modules:
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Form } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 // Import custom modules
 import useAuth from '../../hooks/useAuth';
@@ -8,7 +10,8 @@ import CFCard from '../../components/common/CFCard';
 import CFButton from '../../components/common/CFButton';
 import authService from '../../services/authService';
 import styled from 'styled-components';
-import { Form } from 'react-bootstrap';
+import ErrorPage from '../../components/common/ErrorPage';
+import Loader from '../../components/common/Loader';
 
 // Custom Styles
 const Styles = styled.div`
@@ -54,7 +57,7 @@ const [uploadedFile, setUploadedFile] = useState("");
 const [preview, setPreview] = useState(true);
 
 // Destructure data state nested object properties
-  const { id, username, email, password, isAdmin, image } = userProfile;
+  const { id, username, email, /*password, isAdmin,*/ image } = userProfile;
 
 // UseRef for password confirmation (not used)
 //const passwordConfirmRef = useRef();
@@ -103,8 +106,10 @@ const [preview, setPreview] = useState(true);
     } catch(err) {
       console.log(err?.response);
       setError(true);
+      window.scroll({top: 0, left: 0, behavior: 'smooth' });
     }
-  }
+    setLoading(false);
+  };
 
   // [1] CHANGE STATE FOR TEXT FORM DATA
   const handleTextChange = (e) => {
@@ -149,6 +154,34 @@ const [preview, setPreview] = useState(true);
     window.scroll({top: 0, left: 0, behavior: 'smooth' });
   }
   setLoading(false);
+}
+
+ // CONDITIONAL LOAD: USER ERROR [POSSIBLY REPLACE WITH LOADING STATE]
+ if (!user) {
+  return (
+    <CFCard title="Profile" authform>
+      <div className="text-center mb-4">
+        Cannot Retrieve User
+      </div>
+    </CFCard>
+  )
+}
+// CONDITIONAL LOAD: ERROR
+if (error) {
+  return (
+    <Container className="text-center">
+      <ErrorPage />
+    </Container>
+  )
+}
+
+// CONDITIONAL LOAD: LOADING
+if (loading) {
+  return (
+    <Container>
+      <Loader />
+    </Container>
+  )
 }
 
   return (
