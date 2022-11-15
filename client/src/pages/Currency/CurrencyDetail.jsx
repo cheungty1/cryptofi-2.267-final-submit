@@ -232,56 +232,56 @@ const CurrencyDetail = () => {
             <h2>Financial Services: </h2>
             </Row>
 
-      <Row xs={1} md={2} className="g-4">
-        <Col>
-          <Card>
-            <Card.Img variant="top" src={Img1} />
-            <Card.Body>
-              <Card.Title>Trade Now: Spot Trading</Card.Title>
-              <Card.Text>
-                Spot Trading involves buying and selling assets at the current market spot price
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
+            <Row xs={1} md={2} className="g-4">
+              <Col>
+                <Card>
+                  <Card.Img variant="top" src={Img1} />
+                  <Card.Body>
+                    <Card.Title>Trade Now: Spot Trading</Card.Title>
+                    <Card.Text>
+                      Spot Trading involves buying and selling assets at the current market spot price
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
 
-        <Col>
-          <Card>
-            <Card.Img variant="top" src={Img2} />
-            <Card.Body>
-              <Card.Title>Derivatives/Options</Card.Title>
-              <Card.Text>
-                Derivatives: are securities whose value is derived by an underlying asset on which it is based. Examples include Futures, Forwards, Swaps and Options 
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
+              <Col>
+                <Card>
+                  <Card.Img variant="top" src={Img2} />
+                  <Card.Body>
+                    <Card.Title>Derivatives/Options</Card.Title>
+                    <Card.Text>
+                      Derivatives: are securities whose value is derived by an underlying asset on which it is based. Examples include Futures, Forwards, Swaps and Options 
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
 
-        <Col>
-          <Card>
-            <Card.Img variant="top" src={Img3} />
-            <Card.Body>
-              <Card.Title>NFT - Non-fungible tokens</Card.Title>
-              <Card.Text>
-              Non-fungible tokens (NFTs): are cryptographic assets on a blockchain. NFTs are digital assets that contain references to digital files such as photos, videos, and audio
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
+              <Col>
+                <Card>
+                  <Card.Img variant="top" src={Img3} />
+                  <Card.Body>
+                    <Card.Title>NFT - Non-fungible tokens</Card.Title>
+                    <Card.Text>
+                    Non-fungible tokens (NFTs): are cryptographic assets on a blockchain. NFTs are digital assets that contain references to digital files such as photos, videos, and audio
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
 
-        <Col>
-          <Card>
-            <Card.Img variant="top" src={Img4} />
-            <Card.Body>
-              <Card.Title>Web3 and Defi</Card.Title>
-              <Card.Text>
-                Web3 and Defi Tokens: DeFi is an umbrella term for p2p (peer-to-peer) financial services on public blockchains, focused on building decentralized applications primarily Ethereum
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
+              <Col>
+                <Card>
+                  <Card.Img variant="top" src={Img4} />
+                  <Card.Body>
+                    <Card.Title>Web3 and Defi</Card.Title>
+                    <Card.Text>
+                      Web3 and Defi Tokens: DeFi is an umbrella term for p2p (peer-to-peer) financial services on public blockchains, focused on building decentralized applications primarily Ethereum
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
 
-    </Row>
+          </Row>
           </Container>
         </div>
 
