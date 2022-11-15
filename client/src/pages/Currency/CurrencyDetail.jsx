@@ -227,6 +227,7 @@ const CurrencyDetail = () => {
 
             </Row>
 
+            {/* 3. Financial Services - Other Functionality*/}
             <Row className="tertiary">
             <h2>Financial Services: </h2>
             </Row>
