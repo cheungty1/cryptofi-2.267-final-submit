@@ -41,6 +41,8 @@ const Styles = styled.div`
           margin-top: 1rem;
           width: 30%;
           padding: 1rem;
+          height: 200px;
+          width: 200px;
           border-radius: 50%;
         }
       }
