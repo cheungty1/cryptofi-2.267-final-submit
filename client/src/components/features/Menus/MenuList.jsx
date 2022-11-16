@@ -13,7 +13,7 @@ const GridList = styled.div`
   .grid-static {
     display: grid;
     gap: 0rem;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
@@ -181,6 +181,7 @@ const MenuList = (props) => {
       <span className="grid-item-left5">Low (24h)</span>
       <span className="grid-item-left6">Status / Market Cap (USD)</span>
       <span className="grid-item-left7">Volume</span>
+      <span>&nbsp;</span>
     </div>
 
     {/* Map function - iterate over array to pull data out and display/render it to the DOM */}

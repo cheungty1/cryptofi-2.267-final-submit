@@ -14,7 +14,7 @@ const Styles = styled.div`
   .grid-row {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     align-items: center;
   
     border: 0.1rem solid var(--highlight-light);
@@ -163,7 +163,8 @@ const MenuItem = (props) => {
     <Styles>
 
       <div className="grid-row">
-
+        
+        {/* Section 1: Description */}
         <div className="grid-description">
           <img src={props.image} alt={props.name} />
           <span>{props.name}</span>
@@ -208,6 +209,7 @@ const MenuItem = (props) => {
         <div className="text-center7">
           {props.volume}
         </div>
+
         {/* Section 9: Link to Details */}
         <CFNavLink 
           to={`/currency/${props.id}`}
