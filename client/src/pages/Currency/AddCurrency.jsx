@@ -141,6 +141,7 @@ const AddCurrency = () => {
               </InputGroup>
             </Col>
 
+            {/* 3C: PRICE CHANGE % 24HR */}
             <Col lg={4} md={4} sm={12}>
               <Form.Label>24HR Price Change Percentage</Form.Label>
               <InputGroup>          
@@ -156,6 +157,7 @@ const AddCurrency = () => {
               </InputGroup>
             </Col>
 
+            {/* 3D: HIGH 24HR CBDC PRICE */}
             <Col lg={4} md={4} sm={12}>
               <Form.Label>High 24h CBDC Price</Form.Label>
               <InputGroup>          
@@ -171,7 +173,7 @@ const AddCurrency = () => {
               </InputGroup>
             </Col>
 
-            {/* 3C: CURRENT PRICE */}
+            {/* 3E: LOW 24HR CBDC PRICE */}
             <Col lg={4} md={4} sm={12}>
               <Form.Label>Low 24h CBDC Price</Form.Label>
               <InputGroup>          
@@ -203,7 +205,7 @@ const AddCurrency = () => {
             </Col>
             </Row>
         </Form.Group>
-        
+
         {/* GROUP 5: CBDC STATUS */}
         <Form.Group className="mb-3">
           <Form.Label>CBDC Status</Form.Label>
