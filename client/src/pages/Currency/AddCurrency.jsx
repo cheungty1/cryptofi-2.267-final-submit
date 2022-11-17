@@ -171,7 +171,7 @@ const AddCurrency = () => {
               </InputGroup>
             </Col>
 
-            {/* 3A: CURRENT PRICE */}
+            {/* 3C: CURRENT PRICE */}
             <Col lg={4} md={4} sm={12}>
               <Form.Label>Low 24h CBDC Price</Form.Label>
               <InputGroup>          
@@ -187,7 +187,7 @@ const AddCurrency = () => {
               </InputGroup>
             </Col>
 
-
+        {/* 4: VOLUME */}
         <Col lg={4} md={4} sm={12}>
               <Form.Label>Total Volume</Form.Label>
               <InputGroup>          
@@ -203,7 +203,8 @@ const AddCurrency = () => {
             </Col>
             </Row>
         </Form.Group>
-        {/* GROUP 4: CBDC STATUS */}
+        
+        {/* GROUP 5: CBDC STATUS */}
         <Form.Group className="mb-3">
           <Form.Label>CBDC Status</Form.Label>
           <Form.Control 
@@ -218,7 +219,7 @@ const AddCurrency = () => {
           </Form.Control>
         </Form.Group>
 
-        {/* GROUP 5: DESCRIPTION */}
+        {/* GROUP 6: DESCRIPTION */}
         <Form.Group className="mb-3">
           <Form.Label>Description of New CBDC</Form.Label>
           <Form.Control 
@@ -231,7 +232,7 @@ const AddCurrency = () => {
           />
         </Form.Group>
 
-        {/* GROUP 6: NATION */}
+        {/* GROUP 7: NATION */}
         <Form.Group className="mb-3">
           <Form.Label>Nation of Reserve Bank for DC</Form.Label>
           <Form.Control 
@@ -243,7 +244,7 @@ const AddCurrency = () => {
           />
         </Form.Group>
 
-        {/* GROUP 7: IMAGE */}
+        {/* GROUP 8: IMAGE */}
         <Form.Group className="mb-3" controlId="image">
           <Form.Label>CBDC Image</Form.Label>
           <Form.Control 

@@ -80,14 +80,7 @@ const Styles = styled.div`
 }
 }
 `;
-/*
-const Image1 = styled.img`
-  display: block;
-  margin: auto;
-  width: 45px;
-  height: 45px;
-`;
-*/
+
 // Currency Detail component
 const CurrencyDetail = () => {
   // CUSTOM HOOKS
